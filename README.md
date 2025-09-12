@@ -92,12 +92,6 @@ brew services start redis
 sudo systemctl start postgresql redis
 ```
 
-**Create database**
-
-```bash
-createdb keyserver
-```
-
 ## 🔧 Configuration
 
 ### Client Configuration
@@ -118,7 +112,6 @@ DATABASE_URL=
 REDIS_URL=
 PHONE_SALT=
 SECRET_KEY=
-JWT_SECRET_KEY=
 FLASK_ENV=
 CORS_ORIGINS=
 RATELIMIT_DEFAULT=
@@ -235,15 +228,6 @@ obSecure/
   - **Automatic Rotation**: Signed prekeys rotate automatically every 7 days
 
 ## 🛡️ Security Considerations
-
-### Production Deployment
-
-  - **Use HTTPS**: All server communication should use TLS in production
-  - **Database Security**: Enable PostgreSQL SSL and use strong authentication
-  - **Key Storage**: Private keys are stored locally with file system permissions
-  - **Rate Limiting**: Built in protection against brute force and DoS attacks
-  - **Input Validation**: Comprehensive validation for all user inputs and API endpoints
-
 ### Threat Model
 
   - **Server Compromise**: Messages remain secure; server cannot decrypt past or future messages
@@ -261,10 +245,6 @@ We welcome contributions\! Please follow these guidelines:
 # Clone repository
 git clone [https://github.com/i2mWasil/obSecure.git](https://github.com/i2mWasil/obSecure.git)
 cd obSecure
-
-# Install pre-commit hooks
-pip install pre-commit
-pre-commit install
 
 # Install development dependencies
 pip install pytest black flake8 mypy # Python tools
